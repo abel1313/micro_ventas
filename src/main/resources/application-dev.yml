@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/inventario_key
+    username: root
+    password: 130594
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+server:
+  port: 9094
+  servlet:
+    context-path: /mis-productos/productos
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://prod-server:3306/db_prod
+    username: ${DB_PROD_USER}
+    password: ${DB_PROD_PASS}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+---
+port-micros:
+  usuarios: 9090
+  productos: 9091
+  codigo-barras: 9092
+
+---
+endpoint: http://localhost:${port-micros.productos}/mis-productos
+endpoint-codigo-barras: http://localhost:${port-micros.codigo-barras}/mis-productos/codigo-barras
+api:
+  add: ${endpoint}/codigo-barras
+  dell: ${endpoint}/detalle-ventas
+  iseet: ${endpoint}/productos
+  codigo_barras: ${endpoint-codigo-barras}
+
+clave-seguridad:
+  clave: miClaveSuperSeguraDe32Caracteres
+
+
+
+
