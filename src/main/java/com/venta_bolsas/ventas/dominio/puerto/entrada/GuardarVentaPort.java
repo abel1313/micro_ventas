@@ -1,7 +1,7 @@
 package com.venta_bolsas.ventas.dominio.puerto.entrada;
 
-import com.venta_bolsas.ventas.adaptador.entrada.dto.DetalleVentaDto;
-import com.venta_bolsas.ventas.adaptador.entrada.dto.TotalDetalle;
+import com.venta_bolsas.ventas.aplicacion.entrada.dto.DetalleVentaDto;
+import com.venta_bolsas.ventas.aplicacion.entrada.dto.TotalDetalle;
 import com.venta_bolsas.ventas.dominio.modelo.Venta;
 
 import java.util.List;

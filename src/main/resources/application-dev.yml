@@ -14,7 +14,7 @@ spring:
 server:
   port: 9094
   servlet:
-    context-path: /mis-productos/productos
+    context-path: /mis-productos/
 
 ---
 spring:
@@ -40,6 +40,8 @@ port-micros:
 ---
 endpoint: http://localhost:${port-micros.productos}/mis-productos
 endpoint-codigo-barras: http://localhost:${port-micros.codigo-barras}/mis-productos/codigo-barras
+pagos-url:
+    pagos: http://localhost:9094/mis-productos
 api:
   add: ${endpoint}/codigo-barras
   dell: ${endpoint}/detalle-ventas

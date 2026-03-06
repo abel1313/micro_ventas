@@ -1,4 +1,4 @@
-package com.venta_bolsas.ventas.adaptador.entrada.dto;
+package com.venta_bolsas.ventas.aplicacion.entrada.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

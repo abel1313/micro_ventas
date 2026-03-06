@@ -1,8 +1,6 @@
 package com.venta_bolsas.ventas.infraestructura.salida;
 
-import com.venta_bolsas.ventas.adaptador.entrada.dto.DetalleVentaDto;
 import com.venta_bolsas.ventas.dominio.modelo.DetalleVentaModel;
-import com.venta_bolsas.ventas.dominio.modelo.Venta;
 import com.venta_bolsas.ventas.dominio.puerto.salida.DetalleServicePortExterno;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;

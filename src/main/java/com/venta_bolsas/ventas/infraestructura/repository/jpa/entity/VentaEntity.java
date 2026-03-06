@@ -22,8 +22,14 @@ public class VentaEntity extends BaseEntityId {
     @Column(name = "total_venta", nullable = false)
     private Double totalVenta;
 
-    @Column(name = "forma_pago", nullable = false)
-    private String formaPago;
+    @Column(name = "tipo_pago_id")
+    private Integer tipoPagoId;
+
+    @Column(name = "tarifa_terminal_id")
+    private Integer tarifaTerminalId;
+
+    @Column(name = "iva_id")
+    private Integer ivaId;
 
     @Column(name = "estado_venta", nullable = false)
     private String estadoVenta;

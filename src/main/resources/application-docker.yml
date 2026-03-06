@@ -14,7 +14,7 @@ spring:
 server:
   port: 9094
   servlet:
-    context-path: /mis-productos/productos
+    context-path: /mis-productos/
 
 ---
 spring:
