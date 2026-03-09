@@ -24,9 +24,13 @@ public class SecurityConfig {
                     .csrf(AbstractHttpConfigurer::disable) // desactiva CSRF para APIs REST
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(auth -> auth
-                            .requestMatchers("/tipo-pagos/**", "/mis-productos/**").hasRole("ADMIN")
-                            .requestMatchers(HttpMethod.GET, "/tipo-pagos/getAllOne").permitAll()
-                            .requestMatchers(HttpMethod.GET, "/tipo-pagos/getAll").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/mis-productos/ventas/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, "/mis-productos/ventas/**").permitAll()
+                            .requestMatchers(
+                                    "/v3/api-docs/**",
+                                    "/swagger-ui/**",
+                                    "/swagger-ui.html").permitAll()
+                            .requestMatchers("/monitoring/**").permitAll()
                             .anyRequest().authenticated()// rutas públicas
                     )
                     .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // registra el filtro JWT

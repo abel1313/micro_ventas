@@ -3,13 +3,12 @@ package com.venta_bolsas.ventas.infraestructura.client;
 import com.venta_bolsas.ventas.aplicacion.out.PagosPortOut;
 import com.venta_bolsas.ventas.dominio.formaPago.DetallePago;
 import com.venta_bolsas.ventas.dominio.modelo.ResponseGeneric;
-import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -31,6 +30,8 @@ public class PagoAdapter implements PagosPortOut {
     }
     @Override
     public Mono<ResponseGeneric<Optional<DetallePago>>> obtenerDetallePago(Integer tipoPago, Integer tarifaTerminalId, Integer ivaId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String jwt = (String) authentication.getDetails();
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/tipo-pagos")
@@ -38,6 +39,7 @@ public class PagoAdapter implements PagosPortOut {
                         .queryParam("tarifaTerminalId", tarifaTerminalId)
                         .queryParam("ivaId", ivaId)
                         .build())
+                .header("Authorization", "Bearer ".concat(jwt))
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<>() {});
     }

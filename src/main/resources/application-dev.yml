@@ -12,7 +12,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 server:
-  port: 9094
+  port: 9093
   servlet:
     context-path: /mis-productos/
 
@@ -38,6 +38,10 @@ port-micros:
   codigo-barras: 9092
 
 ---
+
+path-context-micros: mis-productos
+uri: http://localhost
+
 endpoint: http://localhost:${port-micros.productos}/mis-productos
 endpoint-codigo-barras: http://localhost:${port-micros.codigo-barras}/mis-productos/codigo-barras
 pagos-url:
@@ -47,9 +51,24 @@ api:
   dell: ${endpoint}/detalle-ventas
   iseet: ${endpoint}/productos
   codigo_barras: ${endpoint-codigo-barras}
+  usuarios: http://localhost:9090/mis-productos/usuarios
+
+management:
+  endpoints:
+    web:
+      base-path: /monitoring
+      exposure:
+        include: "*"
+
+
 
 clave-seguridad:
   clave: miClaveSuperSeguraDe32Caracteres
+
+logging:
+  level:
+    root: INFO
+    com.venta_bolsas.ventas: DEBUG
 
 
 

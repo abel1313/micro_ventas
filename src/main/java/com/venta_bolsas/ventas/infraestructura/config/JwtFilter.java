@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -47,6 +48,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
                     UsernamePasswordAuthenticationToken authentication =
                             new UsernamePasswordAuthenticationToken(usuario, null, authorities);
+                    authentication.setDetails(token);
 
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     log.debug("Authentication set: {}", SecurityContextHolder.getContext().getAuthentication());
@@ -54,7 +56,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 } catch (Exception e) {
                     SecurityContextHolder.clearContext();
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido");
-                    return;
+                    throw new AuthorizationDeniedException(e.getMessage());
                 }
             }
 

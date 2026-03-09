@@ -22,7 +22,7 @@ public class VentaEntity extends BaseEntityId {
     @Column(name = "total_venta", nullable = false)
     private Double totalVenta;
 
-    @Column(name = "tipo_pago_id")
+    @Column(name = "forma_pago_id")
     private Integer tipoPagoId;
 
     @Column(name = "tarifa_terminal_id")

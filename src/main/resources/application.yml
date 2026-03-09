@@ -14,9 +14,22 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 server:
-  port: 9094
+  port: 9093
   servlet:
     context-path: /mis-productos/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
 
 ---
 spring:
@@ -34,6 +47,7 @@ spring:
     show-sql: false
 
 ---
+
 endpoint: http://localhost:8081/mis-productos
 api:
   venta-service: ${endpoint}/ventas
