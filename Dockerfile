@@ -11,5 +11,5 @@ RUN mvn clean package -DskipTests
 
 # Etapa 2: imagen final ligera
 FROM eclipse-temurin:17-jdk-alpine
-COPY --from=build /app/target/usuarios-0.0.1.jar app.jar
+COPY --from=build /app/target/ventas-0.0.1.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
