@@ -42,6 +42,7 @@ api:
   venta-service: ${ENDPOINT_PRODUCTOS}
   venta-detalle-ventas: ${ENDPOINT_PRODUCTOS}
   productos: ${ENDPOINT_PRODUCTOS}
+  usuarios: ${ENDPOINT_USUARIOS}
 
 pagos-url:
   pagos: http://localhost:9094/mis-productos
