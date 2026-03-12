@@ -43,6 +43,9 @@ api:
   venta-detalle-ventas: ${ENDPOINT_PRODUCTOS}
   productos: ${ENDPOINT_PRODUCTOS}
 
+pagos-url:
+  pagos: http://localhost:9094/mis-productos
+
 management:
   endpoints:
     web:
