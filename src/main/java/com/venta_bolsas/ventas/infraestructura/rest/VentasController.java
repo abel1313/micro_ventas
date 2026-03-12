@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ import java.util.function.Supplier;
 
 @RestController
 @RequestMapping("/ventas")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class VentasController extends ResponseEntityGeneric<Venta> {
 //    private final GuardarVentaPort guardarVentaPort;
