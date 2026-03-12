@@ -46,6 +46,10 @@ public class VentasController extends ResponseEntityGeneric<Venta> {
     private String detalle;
     @Value("${api.productos}")
     private String productos;
+    @Value("${api.usuarios}")
+    private String usuarios;
+    @Value("${pagos-url.pagos}")
+    private String pagos;
 
 
     @PostConstruct
@@ -54,6 +58,8 @@ public class VentasController extends ResponseEntityGeneric<Venta> {
         log.info("ventas {}",ventas);
         log.info("detalle {}",detalle);
         log.info("productos {}",productos);
+        log.info("usuarios {}",usuarios);
+        log.info("pagos {}",pagos);
     }
     @Operation(
             summary = "Obtiene las ventas",
