@@ -58,6 +58,6 @@ public class JwtUtils {
 
 
     public Claims validarToken(String token) {
-        return Jwts.parserBuilder() .setSigningKey(getSecretKey()) .build() .parseClaimsJws(token) .getBody();
+        return Jwts.parserBuilder().setSigningKey(getSecretKey()).build().parseClaimsJws(token) .getBody();
     }
 }

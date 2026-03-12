@@ -52,6 +52,9 @@ api:
   iseet: ${endpoint}/productos
   codigo_barras: ${endpoint-codigo-barras}
   usuarios: http://localhost:9090/mis-productos/usuarios
+  venta-service: ${endpoint}/ventas
+  venta-detalle-ventas: ${endpoint}/detalle-ventas
+  productos: ${endpoint}/productos
 
 management:
   endpoints:

@@ -26,7 +26,8 @@ public class ConsumoDetalleVentaExternoAdapter implements DetalleServicePortExte
     public List<DetalleVentaModel> saveDetalleVenta(List<DetalleVentaModel> detalleVentaDto) {
         return webClient.post()
                 .uri("/detalle-ventas/save")
-                .body(Mono.just(detalleVentaDto), new ParameterizedTypeReference<List<DetalleVentaModel>>() {})
+                .body(Mono.just(detalleVentaDto), new ParameterizedTypeReference<>() {
+                })
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<DetalleVentaModel>>() {})
                 .block();

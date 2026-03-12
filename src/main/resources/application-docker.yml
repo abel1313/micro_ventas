@@ -35,10 +35,13 @@ spring:
 endpoint: http://productos:${PRODUCTOS_PORT}/mis-productos
 endpoint-codigo-barras: http://codigo-barras:${CODIGO_BARRAS_PORT}/mis-productos/codigo-barras
 api:
-  add: ${endpoint}/codigo-barras
-  dell: ${endpoint}/detalle-ventas
-  iseet: ${endpoint}/productos
-  codigo_barras: ${endpoint-codigo-barras}
+  add: ${ENDPOINT_PRODUCTOS}
+  dell: ${ENDPOINT_PRODUCTOS}
+  iseet: ${ENDPOINT_PRODUCTOS}
+  codigo_barras: ${ENDPOINT_PRODUCTOS}
+  venta-service: ${ENDPOINT_PRODUCTOS}
+  venta-detalle-ventas: ${ENDPOINT_PRODUCTOS}
+  productos: ${ENDPOINT_PRODUCTOS}
 
 management:
   endpoints:
