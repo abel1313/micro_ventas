@@ -1,33 +1,23 @@
 package com.venta_bolsas.ventas.infraestructura.rest;
 
 import com.venta_bolsas.ventas.aplicacion.in.VentaUserCase;
-import com.venta_bolsas.ventas.dominio.exceptions.UsuarioNotFound;
 import com.venta_bolsas.ventas.dominio.formaPago.Venta;
 import com.venta_bolsas.ventas.dominio.modelo.PageDto;
 import com.venta_bolsas.ventas.dominio.modelo.ResponseGeneric;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.concurrent.DelegatingSecurityContextCallable;
-import org.springframework.security.concurrent.DelegatingSecurityContextExecutorService;
-import org.springframework.security.concurrent.DelegatingSecurityContextRunnable;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.*;
-import java.util.function.Supplier;
+import java.util.concurrent.Executor;
 
 @RestController
 @RequestMapping("/ventas")
