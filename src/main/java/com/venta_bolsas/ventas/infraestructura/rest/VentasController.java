@@ -4,6 +4,7 @@ import com.venta_bolsas.ventas.aplicacion.in.VentaUserCase;
 import com.venta_bolsas.ventas.dominio.formaPago.Venta;
 import com.venta_bolsas.ventas.dominio.modelo.PageDto;
 import com.venta_bolsas.ventas.dominio.modelo.ResponseGeneric;
+import com.venta_bolsas.ventas.infraestructura.config.AppProperties;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -28,6 +29,9 @@ public class VentasController extends ResponseEntityGeneric<Venta> {
     private final VentaUserCase ventaUserCase;
     private final Executor taskExecutor;
 
+    private final AppProperties appProperties;
+
+
     @Value("${api.codigo_barras}")
     private String barras;
     @Value("${api.venta-service}")
@@ -50,6 +54,8 @@ public class VentasController extends ResponseEntityGeneric<Venta> {
         log.info("productos {}",productos);
         log.info("usuarios {}",usuarios);
         log.info("pagos {}",pagos);
+        
+        log.info("info {}",appProperties);
     }
     @Operation(
             summary = "Obtiene las ventas",
